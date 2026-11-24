@@ -1,0 +1,176 @@
+/* ===== Paleta Amigos da Floresta ===== */
+:root {
+  --azul-claro: #A7C3CF;
+  --azul-escuro: #18404C;
+  --verde: #434C2F;
+  --creme: #DCD488;
+  --rosa: #D79F86;
+  --vinho: #681C2C;
+  --mostarda: #BF8732;
+  --ferrugem: #8C3414;
+  --ameixa: #4B2C3B;
+  --bege: #D4C0A0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Nunito", "Segoe UI", sans-serif;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  line-height: 1.15;
+}
+img { max-width: 100%; display: block; }
+
+/* ===== Menu ===== */
+.menu {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 6vw;
+  background: var(--verde);
+}
+.menu img { height: 44px; }
+.menu nav a {
+  color: var(--creme); text-decoration: none;
+  margin-left: 22px; font-weight: 600; font-size: .95rem;
+}
+.menu nav a:hover { color: var(--rosa); }
+
+/* ===== Seções (moldura arredondada igual à da logo) ===== */
+section { padding: 70px 6vw; }
+.moldura {
+  max-width: 1100px; margin: 0 auto;
+  border: 2px solid currentColor; border-radius: 28px;
+  padding: 56px 5vw;
+}
+.titulo { text-align: center; font-size: clamp(2.2rem, 5vw, 3.4rem); margin-bottom: 12px; }
+.sub { text-align: center; max-width: 620px; margin: 0 auto 44px; opacity: .9; }
+
+/* 1. Boas-vindas */
+#inicio {
+  background: var(--verde); color: var(--creme); text-align: center;
+  padding-top: 50px; position: relative; overflow: hidden;
+}
+#inicio .moldura { position: relative; z-index: 1; }
+#inicio .logo-grande { width: min(560px, 85%); margin: 0 auto 28px; }
+#inicio h1 { font-size: clamp(2.2rem, 6vw, 3.8rem); margin-bottom: 14px; }
+#inicio p { max-width: 560px; margin: 0 auto 28px; color: var(--bege); }
+.botao {
+  display: inline-block; padding: 12px 30px; border-radius: 999px;
+  background: var(--creme); color: var(--verde);
+  font-weight: 700; text-decoration: none; transition: transform .2s;
+}
+.botao:hover { transform: translateY(-3px); }
+
+/* Folhinhas caindo */
+.folha {
+  position: absolute; top: -40px; z-index: 0;
+  opacity: .8; pointer-events: none;
+  animation: cair linear forwards;
+}
+@keyframes cair {
+  to { transform: translateY(110vh) rotate(360deg); }
+}
+
+/* 2. Amigos */
+#amigos { background: var(--azul-claro); color: var(--azul-escuro); }
+.grade { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px; }
+.cartao {
+  background: var(--creme); color: var(--verde);
+  border-radius: 22px; overflow: hidden;
+  box-shadow: 0 6px 0 var(--azul-escuro);
+}
+#amigos .cartao { cursor: pointer; transition: transform .2s; }
+#amigos .cartao:hover { transform: translateY(-6px); }
+.foto {
+  aspect-ratio: 1 / 1; background: var(--bege);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; overflow: hidden;
+}
+.foto img { width: 100%; height: 100%; object-fit: cover; }
+.cartao .texto { padding: 22px; }
+.cartao h3 { font-size: 1.9rem; margin-bottom: 8px; color: var(--vinho); }
+
+/* 3. Tutoriais */
+#tutoriais { background: var(--rosa); color: var(--vinho); }
+#tutoriais .cartao { background: var(--bege); box-shadow: 0 6px 0 var(--vinho); }
+#tutoriais .cartao h3 { color: var(--ferrugem); }
+.video {
+  aspect-ratio: 16 / 9; background: var(--ameixa); color: var(--bege);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+}
+.video iframe { width: 100%; height: 100%; border: 0; }
+.etiqueta {
+  display: inline-block; font-size: .8rem; font-weight: 700;
+  background: var(--mostarda); color: #fff;
+  padding: 2px 12px; border-radius: 999px; margin-bottom: 8px;
+}
+
+/* 4. Artista */
+#artista { background: var(--ameixa); color: var(--bege); }
+.artista-box { display: flex; flex-wrap: wrap; gap: 36px; align-items: center; justify-content: center; }
+.retrato {
+  width: 240px; height: 240px; border-radius: 50%;
+  background: var(--bege); border: 4px solid var(--mostarda);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; overflow: hidden; flex-shrink: 0;
+}
+.retrato img { width: 100%; height: 100%; object-fit: cover; }
+.artista-texto { flex: 1; min-width: 260px; max-width: 520px; }
+.artista-texto h2 { font-size: 2.6rem; color: var(--creme); margin-bottom: 12px; }
+.links a { color: var(--mostarda); font-weight: 700; margin-right: 18px; }
+
+/* Rodapé */
+footer { background: var(--azul-escuro); color: var(--azul-claro); text-align: center; padding: 28px 6vw; font-size: .9rem; }
+footer img { height: 50px; margin: 0 auto 10px; }
+
+/* ===== Janela da história ===== */
+.modal {
+  position: fixed; inset: 0; z-index: 50;
+  background: rgba(24, 64, 76, .85);
+  display: none; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal.aberto { display: flex; }
+.modal-caixa {
+  position: relative;
+  background: var(--creme); color: var(--verde);
+  border-radius: 24px; padding: 28px;
+  max-width: 520px; width: 100%; max-height: 90vh; overflow-y: auto;
+  text-align: center;
+}
+.modal-caixa h3 { font-size: 2.2rem; color: var(--vinho); margin: 16px 0 8px; }
+.modal-foto { border-radius: 18px; overflow: hidden; }
+.modal-foto .foto { aspect-ratio: 1 / 1; max-height: 340px; width: 100%; }
+.modal-fechar {
+  position: absolute; top: 10px; right: 14px;
+  background: var(--vinho); color: var(--creme);
+  border: 0; width: 36px; height: 36px; border-radius: 50%;
+  font-size: 1rem; cursor: pointer; z-index: 2;
+}
+
+/* ===== Seções aparecendo ao rolar ===== */
+.revelar { opacity: 0; transform: translateY(30px); transition: opacity .7s, transform .7s; }
+.revelar.visivel { opacity: 1; transform: none; }
+
+/* ===== Botão voltar ao topo ===== */
+.topo {
+  position: fixed; right: 20px; bottom: 20px; z-index: 20;
+  width: 46px; height: 46px; border-radius: 50%;
+  background: var(--mostarda); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  text-decoration: none; font-size: 1.4rem; font-weight: 700;
+  opacity: 0; pointer-events: none; transition: opacity .3s;
+}
+.topo.mostrar { opacity: 1; pointer-events: auto; }
+
+@media (max-width: 600px) {
+  .menu nav a { margin-left: 12px; font-size: .85rem; }
+  .moldura { padding: 36px 20px; }
+}
